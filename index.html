@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction to Programming</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+  /* Global styles */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom, #000, gold);
+  color: white;
+  text-align: center;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: black;
+}
+
+.brand {
+  font-size: 18px;
+}
+
+.brand span {
+  font-weight: bold;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+}
+
+.page-indicator {
+  background: blue;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* Slide styling */
+main {
+  min-height: 100vh;
+  display: flex;p
+  flex-direction: column;
+  justify-content: center;
+}
+
+.slide {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide.active {
+  display: flex;
+}
+
+h1 span {
+  font-size: 64px;
+}
+
+.next-btn {
+  background: purple;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+  
+  button {
+  background: purple;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 20px;
+  background: black;
+  color: white;
+  font-size: 12px;
+}
+
+.text-circle {
+  background: teal;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.about-text {
+  color: lightgray;
+  margin-top: 20px;
+}
+
+h2 {
+  margin-top: 30px;
+  font-size: 24px;
+}
+  .card {
+            background-color: rgba(147, 148, 171, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+  .a href {
+    list-style: none;
+    text-decoration: none;
+    color: white;
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">Zharz_ <span>web</span></div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#content">Content</a>
+      <a href="#contak">contak</a>
+    </nav>
+    <div class="page-indicator">Page <span id="page-number">01</span></div>
+  </header>
+
+  <main id="home">
+    <section class="slide">
+      <h1><br><span>Programming</span></h1>
+      <p align="center">ingin jadi programer belajar di sini aja<br>Selamat Mencoba</p>
+      <button class="next-btn" onclick="nextSlide()">Next Slide</button>
+    </section>
+    <section class="slide hidden" id="about">
+      <div class="text-square">
+        <h1>Programming <br>Languages</h1>
+      </div>
+      <div class="about-text">
+        <p align="justify">Saya adalah seorang murid yang berminat menjadi seorang programmer, saya hanya baru mengusai 2 bahasa pemrograman, yaitu css dan javascript. Saya sangat antusias dalam mengeksplorasi teknologi terbaru dan selalu berusaha untuk belajar hal-hal baru.</p>
+        <h2>MUHAMMAD IDZHAR AL ASY'ARI</h2>
+        <p align="center">untuk mengetahui lebih jelas lagi klik tombol di bawah ini</p>
+        <button class="next-btn" onclick="nextSlide()">next</button>
+      </div>
+    </section>
+    
+    <section class="slide hidden" id="content">
+      <div class="about-text">
+      <h2>bahasa pemrograman</h2>
+      <div class="card">
+        <img src="html.jpg" style= width:40px; style= height:30px; align="center"><br>
+        <h4>HTML</h4>
+        <p align="justify">hyper text marqup language (HTML) merupakan salah satu bahasa pengkodean atau pemograman yang digunakan untuk membuat halaman website yang ditampilkan pada web browser.</p>
+        <a href="https://www.w3schools.com/Html/"><input type="button" value="lihat materi"> </a>
+        </div><br>
+        
+        <div class="card">
+        <img src="css.jpg" style= width:40px; style= height:30px; align="center"><br>
+        <h4>CSS</h4>
+        <p align="justify">Cascading Style Sheets (CSS) merupakan bahasa pemrograman yang digunakan untuk menentukan bagaimana dokumen dan website akan disajikan (untuk memperbagus halaman website).</p>
+          <a href="https://www.w3schools.com/css/css_examples.asp"><input type="button" value="lihat materi"> </a>
+         </div><br>
+        
+        <div class="card">
+        <img src="javascript.jpg" style= width:50px; style= height:50px; align="center"><br>
+        <h4>JAVA SCRIPT</h4>
+        <p align="justify">JavaScript adalah bahasa pemrograman yang digunakan developer untuk membuat halaman web yang interaktif.</p>
+        <a href="https://www.w3schools.com/js/"><input type="button" value="lihat materi"> </a>
+        </div>
+        <button class="next-btn" onclick="nextSlide()">next</button>
+      </div>
+    </section>
+    
+    <section class="slide hidden" id="contak">
+      <selection id="contak">
+      <a href="https://wa.me/+6285811570814" >
+        <img src="whatsaap.jpg" style= width:100px; style= height:50px; alt="whatsApp saya" target="_blank">
+      </a>
+      <h1>Thank <span>You</span></h1>
+      <button id="backHomeButton">Kembali ke Home</button>
+      </selection>
+      </section>
+  </main>
+
+  <br><footer>
+    <span>www.aboutme.com</span>
+    <span>-</span>
+    <span>Muhammadidzharalasyaari@gmail.com</span>
+  </footer>
+
+  <script>
+  let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const pageNumber = document.getElementById('page-number');
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+  });
+  pageNumber.textContent = String(index + 1).padStart(2, '0');
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
+
+// Initialize the first slide
+showSlide(currentSlide);
+  </script>
+</body>
+</html>
+  <script>
+    document.getElementById("backHomeButton").addEventListener("click", function() {
+      // Ganti URL dengan alamat homepage Anda
+      window.location.href = "index.html";
+    });
+  </script>
