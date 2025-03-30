@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung Mundur Idhul Fitri</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white flex flex-col items-center justify-center h-screen relative overflow-hidden">
+    
+    <!-- Partikel Background -->
+    <div id="particles-js" class="absolute top-0 left-0 w-full h-full -z-10"></div>
+    <canvas id="snow-canvas" class="absolute top-0 left-0 w-full h-full -z-10"></canvas>
+    
+    <h1 class="text-xl font-semibold text-center mb-2">Hitung Mundur Idhul Fitri 1446 H</h1>
+    <div id="countdown" class="text-2xl font-bold text-green-400"></div>
+    
+    <script>
+        const startTime = new Date().getTime();
+        const targetDate = new Date("March 31, 2025 00:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const elapsedTime = now - startTime;
+            const distance = targetDate - now;
+            
+            if (elapsedTime >= 7 * 60 * 60 * 1000 || distance <= 0) {
+                document.body.innerHTML = `<div class='flex flex-col items-center justify-center h-screen text-center'>
+                    <h1 class='text-2xl font-bold text-yellow-300'>Selamat Hari Raya Idul Fitri</h1>
+                    <p class='text-lg text-white mt-2'>1 Syawal 1446 H</p>
+                    <p class='text-lg text-white mt-2'>31 Maret 2025 M</p>
+                    <p class='text-sm text-gray-300 mt-2'>Mohon maaf lahir dan batin</p>
+                </div>`;
+                return;
+            }
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById("countdown").innerText = `${days} Hari ${hours} Jam ${minutes} Menit ${seconds} Detik`;
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 100 },
+                color: { value: ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff"] },
+                size: { value: 3 },
+                move: { speed: 2 }
+            }
+        });
+
+        // Partikel Salju
+        const canvas = document.getElementById("snow-canvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        let snowflakes = [];
+        for (let i = 0; i < 100; i++) {
+            snowflakes.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 3 + 1,
+                speed: Math.random() * 3 + 1
+            });
+        }
+        
+        function drawSnowflakes() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "white";
+            ctx.beginPath();
+            snowflakes.forEach(flake => {
+                ctx.moveTo(flake.x, flake.y);
+                ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
+            });
+            ctx.fill();
+            moveSnowflakes();
+        }
+        
+        function moveSnowflakes() {
+            snowflakes.forEach(flake => {
+                flake.y += flake.speed;
+                if (flake.y > canvas.height) {
+                    flake.y = 0;
+                    flake.x = Math.random() * canvas.width;
+                }
+            });
+        }
+        
+        function animateSnowfall() {
+            drawSnowflakes();
+            requestAnimationFrame(animateSnowfall);
+        }
+        animateSnowfall();
+    </script>
+</body>
+</html>
